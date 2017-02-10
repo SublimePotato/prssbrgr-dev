@@ -1,0 +1,23 @@
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -99999;
+    
+    & svg{
+        height: 100%;
+        width: 100%; 
+    }    
+    svg path {
+        opacity: 0.1;
+        transition: opacity 20s ease;
+    }    
+    svg rect {
+        pointer-events: none;
+    }
+    svg path:hover, svg path:active {
+        opacity: 1;
+        transition: opacity 0.1s ease;
+    }
+}
