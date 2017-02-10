@@ -14,6 +14,14 @@ export default {
         test: /\.js?$/,
         exclude: /node_modules/,
         query: {cacheDirectory: true}
+      },
+      {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+      },
+      {
+          test: /\.less$/,
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
       }
     ]
   },
