@@ -1,0 +1,24 @@
+
+.background{
+  z-index: -999999;
+  transition: opacity ease 0.5s;
+}
+
+.background.opacity{
+  opacity: 0;
+}
+
+.background svg path{
+  opacity:0.2;
+  transition: opacity 20s ease;
+}
+
+.background svg path:hover{
+  opacity:1;
+  transition: opacity 0.1s ease;
+}
+
+
+.background svg rect{
+  pointer-events: none;
+}

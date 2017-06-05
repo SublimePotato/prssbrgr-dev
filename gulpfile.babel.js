@@ -18,14 +18,12 @@ gulp.task("hugo-preview", (cb) => buildSite(cb, ["--buildDrafts", "--buildFuture
 gulp.task("build", ["css", "js", "hugo"]);
 gulp.task("build-preview", ["css", "js", "hugo-preview"]);
 
-gulp.task('less', function () {
-  gulp.src('./src/css/*.less')
-    .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'includes') ]
-    }))
+gulp.task("css", () => (
+  gulp.src("./src/css/*.css")
+    .pipe(postcss([cssImport({from: "./src/css/main.css"}), cssnext()]))
     .pipe(gulp.dest("./dist/css"))
     .pipe(browserSync.stream())
-});
+));
 
 gulp.task("js", (cb) => {
   const myConfig = Object.assign({}, webpackConfig);
